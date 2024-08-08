@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blog Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .navbar, .footer {
+            background-color: #040720;
+        }
+        .footer a {
+            color: #8822aa;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="navbar p-4 text-white flex justify-between items-center">
+        <div class="flex items-center">
+            <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+        </div>
+        <div class="flex items-center">
+            <a href="/" class="text-white hover:underline mx-4 flex items-center"><i class="fas fa-home"></i> Home</a>
+            <a href="/blog-list" class="text-white hover:underline mx-4 flex items-center"><i class="fas fa-file-alt"></i> Saved Blog Posts</a>
+            <a href="#" class="text-white hover:underline flex items-center"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+
+            <!-- Blog posts section -->
+            <section>
+                <h2 class="text-xl mb-4 font-semibold">All Blog Posts</h2>
+                <div class="space-y-4">
+                    {% for article in blog_articles reversed %}
+                    <a href="blog-details/{{ article.id }}" class="block">
+                        <div class="border border-gray-300 p-4 rounded-lg hover:shadow-lg transition-shadow">
+                            <h3 class="text-lg font-semibold">{{ article.youtube_title }}</h3>
+                            <p class="text-gray-700 mt-2">{{ article.generated_content|truncatechars:80 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer class="footer text-center p-4 text-white mt-6">
+        <p class="show-mobile">Code by <a style="color: #8822aa;" href="mailto:billleynyuy@gmail.com">Nyuydine Bill - Click here to send me an email</a></p>
+    </footer>
+</body>
+</html>
