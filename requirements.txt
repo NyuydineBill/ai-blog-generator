@@ -29,6 +29,7 @@ google-api-python-client==2.97.0
 google-auth==1.35.0
 google-auth-httplib2==0.1.0
 googleapis-common-protos==1.60.0
+gunicorn==22.0.0
 h11==0.14.0
 html5lib==1.1
 httpcore==0.17.3
@@ -41,6 +42,8 @@ multidict==6.0.4
 mutagen==1.47.0
 oauthlib==3.2.2
 openai==0.27.5
+packaging==24.1
+pillow==10.4.0
 protobuf==4.25.4
 psycopg2==2.9.6
 psycopg2-binary==2.9.6
